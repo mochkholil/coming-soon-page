@@ -1,0 +1,241 @@
+/* ---------
+    Base
+--------- */
+:root {
+  /* primary */
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  /* neutral */
+  --dark-grayish-red: hsl(0, 6%, 24%);
+  /* gradient */
+  --gradient-1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --gradient-2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+  /* font weight */
+  --Light: 300;
+  --regular: 400;
+  --semi-bold: 600;
+}
+
+/* ----------
+    Reset
+---------- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-size: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #f2f2f2;
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.attribution {
+  font-size: 15px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* ----------
+    card
+---------- */
+.container {
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  margin: 100px auto 50px auto;
+  background: url(images/bg-pattern-desktop.svg);
+  box-shadow: -16px 16px 15px -6px rgba(0, 0, 0, 0.3);
+}
+
+.column-1 {
+  padding: 50px 200px 100px 100px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 50px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  font-size: 50px;
+  font-weight: var(--semi-bold);
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  margin: 30px 0;
+  line-height: 1.1;
+}
+
+.header-text.top {
+  color: var(--desaturated-red);
+  font-weight: var(--Light);
+}
+.paragraph {
+  color: var(--desaturated-red);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+form#form {
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+
+.inputBx {
+  height: 50px;
+  width: 100%;
+  border: 1px solid var(--desaturated-red);
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+#email {
+  background: transparent !important;
+  width: 60%;
+  border: none;
+  padding: 10px 20px;
+  outline: none;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem;
+}
+
+#email::placeholder {
+  color: var(--desaturated-red);
+  opacity: 0.8;
+  font-size: 0.9rem;
+  background-color: transparent !important;
+}
+
+.icon {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+}
+
+.error img {
+  transform: translateX(-80px);
+  display: none;
+}
+
+.error-text {
+  color: var(--soft-red);
+  margin: 10px 20px;
+  font-size: 0.9rem;
+  display: none;
+}
+
+#btn-email {
+  right: 0;
+  top: 0;
+  display: inline-block;
+  outline: none;
+  height: 50px;
+  width: 80px;
+  background: var(--gradient-2);
+  border: none;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 27px -9px rgba(249, 98, 98, 0.4);
+}
+
+#btn-email:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 27px -9px rgba(249, 98, 98, 0.7);
+}
+
+#btn-email img {
+  width: 10px;
+  height: 15px;
+  color: var(--gradient-1);
+}
+
+.column-2 {
+  background-size: cover;
+  background-image: url(images/hero-desktop.jpg);
+  background-repeat: no-repeat;
+}
+
+/* -------------
+  Media queries
+------------- */
+@media screen and (max-width: 375px) {
+  .container {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: none;
+    background: none;
+  }
+
+  .column-1 {
+    position: relative;
+    padding: 20px;
+  }
+
+  .column-2 {
+    background-image: url(images/hero-mobile.jpg);
+    width: 100%;
+    height: 250px;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 9999;
+    top: 65px;
+  }
+
+  .logo {
+    width: 100px;
+    margin-bottom: 300px;
+  }
+
+  .header {
+    text-align: center;
+    font-size: 2.7rem;
+  }
+
+  .paragraph {
+    text-align: center;
+  }
+
+  .attribution {
+    display: none;
+  }
+}
